@@ -2,6 +2,7 @@ package io.igorv404.bankhotel.controllers;
 
 import io.igorv404.bankhotel.models.Event;
 import io.igorv404.bankhotel.services.EventService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -46,13 +47,13 @@ public class EventController {
 
     @CrossOrigin
     @PostMapping
-    private ResponseEntity<Event> create(@RequestBody Event entity) {
+    private ResponseEntity<Event> create(@Valid @RequestBody Event entity) {
         return new ResponseEntity<>(this.eventService.create(entity), HttpStatus.CREATED);
     }
 
     @CrossOrigin
     @PutMapping("/{id}")
-    private ResponseEntity<Event> update(@PathVariable Integer id, @RequestBody Event entity) {
+    private ResponseEntity<Event> update(@PathVariable Integer id, @Valid @RequestBody Event entity) {
         return new ResponseEntity<>(this.eventService.update(id, entity), HttpStatus.OK);
     }
 

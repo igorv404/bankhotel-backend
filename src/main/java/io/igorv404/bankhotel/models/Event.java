@@ -6,10 +6,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import java.util.Date;
 
@@ -24,21 +29,27 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
+    @Pattern(regexp = "^[a-z]+(?:-[a-z]+)*$")
     private String url;
 
     @Column(nullable = false)
+    @URL
     private String titleImage;
 
-    @Column(length = 100, nullable = false)
+    @Column(unique = true, length = 100, nullable = false)
+    @NotBlank
     private String name;
 
     @Column(length = 2500, nullable = false)
+    @Length(min = 100)
     private String description;
 
     @Column(nullable = false)
+    @NotNull
     private Date startDate;
 
     @Column(nullable = false)
+    @NotNull
     private Date endDate;
 }
