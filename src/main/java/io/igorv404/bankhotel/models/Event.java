@@ -16,7 +16,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -47,9 +47,9 @@ public class Event {
 
     @Column(nullable = false)
     @NotNull
-    private Date startDate;
+    private LocalDate startDate;
 
     @Column(nullable = false)
     @NotNull
-    private Date endDate;
+    private LocalDate endDate;
 }
