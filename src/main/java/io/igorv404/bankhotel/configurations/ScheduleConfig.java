@@ -22,11 +22,8 @@ public class ScheduleConfig {
     private void deleteAllExpiredEntities() {
         LocalDate localDate = LocalDate.now();
         List<Event> entities = this.eventRepository.findAll();
-        List<Event> expiredEntities = entities.stream()
+        entities.stream()
                 .filter(entity -> entity.getEndDate().isBefore(localDate))
-                .toList();
-        for (Event entity : expiredEntities) {
-            this.eventRepository.deleteById(entity.getId());
-        }
+                .forEach(entity -> this.eventRepository.deleteById(entity.getId()));
     }
 }

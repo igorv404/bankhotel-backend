@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/events")
 public class EventController {
     private final EventService eventService;
@@ -26,38 +27,32 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @CrossOrigin
     @GetMapping
     private ResponseEntity<List<Event>> getAll() {
         return new ResponseEntity<>(this.eventService.getAll(), HttpStatus.OK);
     }
 
-    @CrossOrigin
     @GetMapping("/url/{url}")
     private ResponseEntity<Event> getByUrl(@PathVariable String url) {
         Event responseEntity = this.eventService.getByUrl(url);
         return new ResponseEntity<>(responseEntity, responseEntity != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 
-    @CrossOrigin
     @GetMapping("/{id}")
     private ResponseEntity<Event> getById(@PathVariable Integer id) {
         return new ResponseEntity<>(this.eventService.getById(id), HttpStatus.OK);
     }
 
-    @CrossOrigin
     @PostMapping
     private ResponseEntity<Event> create(@Valid @RequestBody Event entity) {
         return new ResponseEntity<>(this.eventService.create(entity), HttpStatus.CREATED);
     }
 
-    @CrossOrigin
     @PutMapping("/{id}")
     private ResponseEntity<Event> update(@PathVariable Integer id, @Valid @RequestBody Event entity) {
         return new ResponseEntity<>(this.eventService.update(id, entity), HttpStatus.OK);
     }
 
-    @CrossOrigin
     @DeleteMapping("/{id}")
     private ResponseEntity<String> delete(@PathVariable Integer id) {
         Event responseEntity = this.eventService.getById(id);
