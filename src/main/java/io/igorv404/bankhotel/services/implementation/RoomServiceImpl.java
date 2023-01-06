@@ -39,12 +39,12 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public Room update(Integer id, Room entity) {
-        Room updatedRoom = this.roomRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        updatedRoom.setName(entity.getName());
-        updatedRoom.setImages(entity.getImages());
-        updatedRoom.setDescription(entity.getDescription());
-        updatedRoom.setServices(entity.getServices());
-        return this.roomRepository.save(updatedRoom);
+        Room updatedEntity = this.roomRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        updatedEntity.setName(entity.getName());
+        updatedEntity.setImages(entity.getImages());
+        updatedEntity.setDescription(entity.getDescription());
+        updatedEntity.setAmenities(entity.getAmenities());
+        return this.roomRepository.save(updatedEntity);
     }
 
     @Override
