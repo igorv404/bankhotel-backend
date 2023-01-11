@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
@@ -43,6 +44,14 @@ public class Room {
     @ElementCollection
     @NotEmpty
     private List<String> images;
+
+    @Column(nullable = false)
+    @Min(1)
+    private Integer countOfGuests;
+
+    @Column(nullable = false)
+    @Min(1)
+    private Integer area;
 
     @Column(length = 2500, nullable = false)
     @Length(min = 50)
