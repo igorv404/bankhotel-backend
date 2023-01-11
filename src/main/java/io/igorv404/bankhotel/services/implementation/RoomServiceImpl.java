@@ -42,6 +42,8 @@ public class RoomServiceImpl implements RoomService {
         Room updatedEntity = this.roomRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         updatedEntity.setName(entity.getName());
         updatedEntity.setImages(entity.getImages());
+        updatedEntity.setCountOfGuests(entity.getCountOfGuests());
+        updatedEntity.setArea(entity.getArea());
         updatedEntity.setDescription(entity.getDescription());
         updatedEntity.setAmenities(entity.getAmenities());
         return this.roomRepository.save(updatedEntity);
