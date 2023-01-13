@@ -1,4 +1,4 @@
-package io.igorv404.bankhotel.services.implementation;
+package io.igorv404.bankhotel.services.implementations;
 
 import io.igorv404.bankhotel.models.Room;
 import io.igorv404.bankhotel.repositories.RoomRepository;

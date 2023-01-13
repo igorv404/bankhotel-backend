@@ -1,4 +1,4 @@
-package io.igorv404.bankhotel.services.implementation;
+package io.igorv404.bankhotel.services.implementations;
 
 import io.igorv404.bankhotel.models.Event;
 import io.igorv404.bankhotel.repositories.EventRepository;
