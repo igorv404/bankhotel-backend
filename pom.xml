@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>io.igorv404</groupId>
 	<artifactId>bankhotel</artifactId>
-	<version>0.1.0</version>
+	<version>0.2.2</version>
 	<name>bankhotel</name>
 	<description>Server-side application for Bankhotel website</description>
 	<properties>
