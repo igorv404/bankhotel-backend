@@ -38,6 +38,7 @@ public class AmenitiesServiceImpl implements AmenitiesService {
                 new ResponseStatusException(HttpStatus.NOT_FOUND));
         updatedEntity.setId(entity.getId());
         updatedEntity.setName(entity.getName());
+        updatedEntity.setIcon(entity.getIcon());
         return this.amenitiesRepository.save(updatedEntity);
     }
 
