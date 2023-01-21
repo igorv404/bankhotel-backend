@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.URL;
 
 @Entity
 @Getter
@@ -25,4 +26,8 @@ public class Amenities {
     @Column(unique = true, nullable = false)
     @NotBlank
     private String name;
+
+    @Column(nullable = false)
+    @URL
+    private String icon;
 }
